@@ -1,1 +1,6 @@
-# movies-explorer-frontend
+# Фронтенд дипломной работы без логики JS
+
+3й этап дипломной работы
+
+Ссылка на сгенерированный макет:
+`https://disk.yandex.ru/d/X0y1r5yDvmwVxQ`

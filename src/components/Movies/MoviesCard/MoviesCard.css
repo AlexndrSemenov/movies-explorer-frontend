@@ -1,0 +1,98 @@
+.movies__item {
+  width: 270px;
+  height: 218px;
+  margin: 0;
+  background: #FDFDFD;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  justify-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .movies__item {
+    width: 339px;
+    height: 257px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movies__item {
+    width: 300px;
+    height: 235px;
+  }
+}
+
+.movies__screen {
+  width: 100%;
+  height: 151px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+@media screen and (max-width: 1080px) {
+  .movies__screen {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movies__screen {
+    height: 168px;
+  }
+}
+
+.movies__wrapperName {
+  height: 16px;
+  margin: 14px 12px 10px 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movies__name {
+  width: 206px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.movies__likeWrapper {
+  width: 16px;
+  position: relative;
+}
+
+.movies__likeOne {
+  position: absolute;
+  z-index: 4;
+}
+
+.movies__likeTwo-grey {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  z-index: 3;
+  background: #F9F9F9;
+  border-radius: 50px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09);
+}
+
+.movies__likeTwo-green {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  z-index: 3;
+  background: #2BE080;
+  border-radius: 50px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09);
+}
+
+.movies__duration {
+  margin-left: 12px;
+  color: #A0A0A0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13.31px;
+}

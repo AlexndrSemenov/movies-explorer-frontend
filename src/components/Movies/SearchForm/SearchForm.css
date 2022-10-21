@@ -1,0 +1,143 @@
+.searchForm__title {
+  max-width: calc(100% - 70px * 2);
+  margin: 80px auto 10px auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 83px;
+  border-bottom: 1px solid #AAAA;
+}
+
+@media screen and (max-width: 990px) {
+  .searchForm__title {
+    max-width: calc(100% - 30px * 2);
+    display: block;
+    padding-bottom: 56px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .searchForm__title {
+    max-width: 320px;
+    padding: 0 10px 44px 10px;
+    margin: 60px auto 10px auto;
+  }
+}
+
+.searchForm__wrapperSeach {
+  width: 82%;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  border: 1.5px solid #AAAAAA;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 990px) {
+  .searchForm__wrapperSeach {
+    width: 100%;
+  }
+}
+
+.searchForm__input {
+  width: 90%;
+  margin-left: 22px;
+  border: none;
+  color: #A0A0A0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 320px) {
+  .searchForm__input {
+    font-size: 11px;
+  }
+}
+
+.searchForm__button {
+  width: 58.65px;
+  height: 34px;
+  margin: auto 7px auto auto;
+  color: white;
+  background: #3456F3;
+  border-radius: 48px;
+  border: none;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.searchForm__wrapperShot {
+  width: 167px;
+  margin: auto 0 auto 41px;
+  display: flex;
+}
+
+@media screen and (max-width: 990px) {
+  .searchForm__wrapperShot {
+    margin: 37px auto 0 auto;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .searchForm__wrapperShot {
+    margin: 45px auto 0 auto;
+  }
+}
+
+.searchForm__shotText {
+  margin: auto 14px auto auto;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 320px) {
+  .searchForm__shotText {
+    font-size: 11px;
+  }
+}
+
+.checkbox-ios .checkbox-ios-switch {
+	position: relative;	
+	display: inline-block;
+	box-sizing: border-box;			
+	width: 36px;	
+	height: 20px;
+	border-radius: 20px;	
+	vertical-align: top;
+	background: #eee;
+	transition: .2s;
+  cursor: pointer;
+}
+
+.checkbox-ios .checkbox-ios-switch:before {
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: 6px;	
+	width: 8px;	
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+	transition: .15s;
+}
+
+.checkbox-ios input[type=checkbox] {
+	display: block;	
+	width: 0;
+	height: 0;	
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch {
+	background: #2BE080;
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch:before {
+	transform:translateX(16px);
+}

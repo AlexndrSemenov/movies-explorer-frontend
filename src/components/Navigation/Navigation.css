@@ -1,0 +1,60 @@
+.navigation {
+  /* display: absolut;
+  top: 0;
+  right: 0; */
+  display: none;
+
+  background: white;
+  padding-left: 248px;
+  text-align: center;
+
+
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.navigation__visible {
+  display: block;
+  width: 520px;
+  height: 1024px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;        
+}
+
+.navTab__button {
+  margin: auto 5px;
+  padding: 0;
+  width: 76px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .navTab__button {
+    margin: auto 20px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .navTab__button {
+    margin: auto 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navTab__button {
+    margin: auto 12px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
