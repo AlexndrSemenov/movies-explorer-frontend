@@ -28,7 +28,8 @@
 .movies__screen {
   width: 100%;
   height: 151px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   object-fit: cover;
   object-position: left top;
 }
@@ -62,6 +63,11 @@
 .movies__likeWrapper {
   width: 16px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
 }
 
 .movies__likeOne {

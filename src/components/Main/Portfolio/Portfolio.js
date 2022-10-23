@@ -7,18 +7,18 @@ function Portfolio() {
     
     <section className="portfolio">
       <h2 className='portfolio__title'>Портфолио</h2>
-      <ul className='portfolio__site-static-adaptiv'>
-        <li>Статичный сайт</li>
-        <li><a href="https://github.com/AlexndrSemenov" target="blank"><img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img></a></li>
-      </ul>
-      <ul className='portfolio__site-static-adaptiv'>
-        <li>Адаптивный сайт</li>
-        <li><a href="https://github.com/AlexndrSemenov" target="blank"><img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img></a></li>
-      </ul>
-      <ul className='portfolio__site-onelist'>
-        <li>Одностраничное приложение</li>
-        <li><a href="https://github.com/AlexndrSemenov" target="blank"><img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img></a></li>
-      </ul>
+      <a href="https://github.com/AlexndrSemenov" className='portfolio__wrapper' target="blank">
+        <span>Статичный сайт</span>
+        <img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img>
+      </a>
+      <a href="https://github.com/AlexndrSemenov" className='portfolio__wrapper' target="blank">
+        <span>Адаптивный сайт</span>
+        <img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img>
+      </a>
+      <a href="https://github.com/AlexndrSemenov" className='portfolio__wrapper' target="blank">
+        <span>Одностраничное приложение</span>
+        <img src={arrow} alt="Изображение стрелки" className='portfolio__link'></img>
+      </a>
     </section>
     
   );

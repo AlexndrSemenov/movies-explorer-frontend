@@ -2,12 +2,12 @@ import React from 'react';
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies() {
+function Movies(props) {
   return (
 
     <section>
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList location={props.location} />
     </section>
 
   );

@@ -14,6 +14,8 @@
   }
 }
 
+
+
 @media screen and (max-width: 320px) {
   .portfolio__title {
     max-width: 292px;
@@ -22,71 +24,73 @@
   }
 }
 
-.portfolio__site-static-adaptiv {
+.portfolio__wrapper {
   max-width: calc(100% - 70px * 2);
   margin: 20px auto 0 auto;
   padding: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
   padding-bottom: 19px;
-  border-bottom: 1px solid black;
-  list-style: none;
+  color: black;
+  text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
-  .portfolio__site-static-adaptiv {
-    max-width: calc(100% - 50px * 2);
-    font-size: 28px;
-  }
+.portfolio__wrapper:nth-child(2), .portfolio__wrapper:nth-child(3) {
+  border-bottom: 1px solid #E8E8E8;
 }
 
-@media screen and (max-width: 320px) {
-  .portfolio__site-static-adaptiv {
-    max-width: 292px;
-    font-size: 18px;
-    line-height: 28px;
-  }
-}
-
-.portfolio__site-onelist {
-  max-width: calc(100% - 70px * 2);
+.portfolio__wrapper:nth-child(4) {
   margin: 20px auto 125px auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 50px;
-  list-style: none;
 }
 
 @media screen and (max-width: 768px) {
-  .portfolio__site-onelist {
+  .portfolio__wrapper {
     max-width: calc(100% - 50px * 2);
-    margin: 20px auto 90px auto;
     font-size: 28px;
   }
 }
 
-@media screen and (max-width: 320px) {
-  .portfolio__site-onelist {
-    margin-bottom: 70px;
-    max-width: 292px;
+@media screen and (max-width: 580px) {
+  .portfolio__wrapper {
+    max-width: calc(100% - 20px * 2);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .portfolio__wrapper {
     font-size: 18px;
     line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .portfolio__wrapper {
+    max-width: 292px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__wrapper:nth-child(4) {
+    margin: 20px auto 90px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .portfolio__wrapper:nth-child(4) {
+    margin-bottom: 70px;
   }
 }
 
 .portfolio__link {
-  cursor: pointer;
+  width: 18px;
 }
 
 @media screen and (max-width: 320px) {
   .portfolio__link {
     width: 15px;
-    
   }
 }

@@ -2,16 +2,16 @@ import React from 'react';
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList() {
+function MoviesCardList(props) {
   return (
     
     <section>
       <ul className='movies__table'>
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
+        <MoviesCard location={props.location} />
+        <MoviesCard location={props.location} />
+        <MoviesCard location={props.location} />
+        <MoviesCard location={props.location} />
+        <MoviesCard location={props.location} />
       </ul>
 
       <div className='movies__next'>

@@ -23,7 +23,7 @@ function App() {
   // const history = useHistory();
   const location = useLocation().pathname;
   //стейт переменная loggedIn, true если значение токена пользователя в localStorage совпадает с токеном, который сайт генерировал ранее, false - не совпадает 
-  const [loggedIn, changeLoggedIn] = useState();
+  const [loggedIn, changeLoggedIn] = useState(true);
   // const [userEmail, setUserEmail] = useState({});
   // const [infoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
   // const [title, setTitle] = useState('');
@@ -240,11 +240,11 @@ function App() {
             </Route>
 
             <Route path="/movies">
-              <Movies />
+              <Movies location={location} />
             </Route>
 
             <Route path="/saved-movies">
-              <Movies />
+              <Movies location={location} />
             </Route>
 
             <Route path="/profile">

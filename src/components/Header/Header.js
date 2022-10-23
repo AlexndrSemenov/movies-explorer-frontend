@@ -34,10 +34,10 @@ function Header(props) {
             <div className='header__accountImage'><img src={headerAccount} alt="Аккаунт"></img></div>
             <div className='header__accountText'>Аккаунт</div>
           </a>
-          <button className='header__buttomMenu' onClick={changeNavigationStatus}>
+          <button className={ props.location==='/' ? (`${'header__buttomMenu'} ${'header__buttomMenu-dark'}`) : ('header__buttomMenu') } onClick={changeNavigationStatus}>
             <img src={headerButtonMenu} alt="Аккаунт"></img>
           </button>
-          <div className={`navigation ${navigationMenu ? 'navigation__visible' : ''}`}>
+          <div className={`displayNone ${navigationMenu ? 'navigation__visible' : ''}`}>
             <div className="navigation__buttonExit" onClick={changeNavigationStatusFalse}>
               <div className='navigation__buttonExit-part1'></div>
               <div className='navigation__buttonExit-part2'></div>
