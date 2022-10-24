@@ -1,0 +1,121 @@
+.profile__form {
+  margin: 0 auto 70px auto;
+  width: 410px;
+}
+
+
+@media screen and (max-width: 450px) {
+  .profile__form {
+    width: 260px;
+  }
+}
+
+.profile__title {
+  margin: 74px auto 123px auto;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__title {
+    margin: 236px auto 96px auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .profile__title {
+    margin: 70px auto 80px auto;
+  }
+}
+
+.profile__title-name {
+  margin-left: 10px;
+}
+
+.profile__text {
+  margin-bottom: 220px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13.31px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__text {
+    margin-bottom: 210px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .profile__text {
+    margin-bottom: 379px;
+  }
+}
+
+.profile__text:nth-child(1) {
+  padding-bottom: 16px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+@media screen and (max-width: 450px) {
+  .login__text {
+    text-align: start;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.profile__link {
+  margin: 0 auto 16px auto;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15.73px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 450px) {
+  .register__link {
+    margin: 157px auto 14px auto;
+    width: 260px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .register__link {
+    font-size: 12px;
+  }
+}
+
+.profile__link:hover {
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.profile__link-quit {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15.73px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #FF3055;
+}
+
+@media screen and (max-width: 450px) {
+  .profile__link-quit {
+    font-size: 12px;
+  }
+}

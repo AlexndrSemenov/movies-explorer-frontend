@@ -1,0 +1,29 @@
+@import url(../src/vendor/normalize.css);
+@import url(../src/vendor/fonts/fonts.css);
+
+.body {
+  min-width: 320px;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+
+/* @import url(../src/blocks/body/body.css);
+@import url(../src/blocks/body/__header/body__header.css);
+@import url(../src/blocks/body/__header-auth/body__header-auth.css);
+@import url(../src/blocks/body/__header-email/body__header-email.css);
+@import url(../src/blocks/body/__header-button/body__header-button.css);
+@import url(../src/blocks/body/__profile/body__profile.css);
+@import url(../src/blocks/body/__photo-grid/body__photo-grid.css);
+@import url(../src/blocks/body/__footer/body__footer.css); */
+
