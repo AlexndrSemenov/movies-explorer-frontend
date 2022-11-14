@@ -1,0 +1,10 @@
+.popup__text-error_active {
+  position: absolute;
+  display: block;
+  visibility: visible;
+  min-height: 33px;
+  width: 358px;
+  font-size: 12px;
+  line-height: 14.52px;
+  color: #ff0000;
+}

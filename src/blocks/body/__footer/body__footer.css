@@ -1,0 +1,23 @@
+.body__footer {
+  max-width: 880px;
+  margin: 46px auto 60px;
+}
+
+@media screen and (max-width: 1024px) {
+  .body__footer {
+    margin: 46px 100px 60px 100px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .body__footer {
+    margin: 35px auto 35px auto;
+    max-width: calc(85%);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .body__footer {
+    margin: 48px auto 36px 19px;
+  }
+}

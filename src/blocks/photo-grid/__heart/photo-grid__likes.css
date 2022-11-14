@@ -1,0 +1,19 @@
+.photo-grid__likes {
+  cursor: pointer;
+  margin: 0 auto auto 7px;
+  font-size: 13px;
+  line-height: 15.73px;
+  font-weight: 400;
+  color: black;
+  /* width: 22px;
+  height: 19px;
+  background: none;
+  background-image: url(../../../images/heart.svg);
+  background-size: cover;
+  border: none; */
+}
+
+/* .photo-grid__heart:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+} */

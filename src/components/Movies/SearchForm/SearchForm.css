@@ -1,17 +1,15 @@
 .searchForm__title {
   max-width: calc(100% - 70px * 2);
   margin: 80px auto 10px auto;
-  display: flex;
   justify-content: space-between;
-  padding-bottom: 83px;
+  padding-bottom: 45px;
   border-bottom: 1px solid #AAAA;
 }
 
 @media screen and (max-width: 990px) {
   .searchForm__title {
     max-width: calc(100% - 30px * 2);
-    display: block;
-    padding-bottom: 56px;
+    padding-bottom: 18px;
   }
 }
 
@@ -20,6 +18,30 @@
     max-width: 320px;
     padding: 0 10px 44px 10px;
     margin: 60px auto 10px auto;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+@media screen and (max-width: 990px) {
+  .flex {
+    display: block;
+  }
+}
+
+.searchForm__message {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 13px;
+  height: 18px;
+  color: red;
+}
+
+@media screen and (max-width: 320px) {
+  .searchForm__message {
+    font-size: 11px;
   }
 }
 
@@ -44,7 +66,6 @@
   width: 90%;
   margin-left: 22px;
   border: none;
-  color: #A0A0A0;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -106,7 +127,7 @@
   }
 }
 
-.checkbox-ios .checkbox-ios-switch {
+.checkbox-ios-switch {
 	position: relative;	
 	display: inline-block;
 	box-sizing: border-box;			
@@ -119,7 +140,7 @@
   cursor: pointer;
 }
 
-.checkbox-ios .checkbox-ios-switch:before {
+.checkbox-ios-switch:before {
 	content: '';
 	position: absolute;
 	top: 6px;

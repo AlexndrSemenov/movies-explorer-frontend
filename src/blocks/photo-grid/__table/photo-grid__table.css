@@ -1,0 +1,10 @@
+.photo-grid__table {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 28vh;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}

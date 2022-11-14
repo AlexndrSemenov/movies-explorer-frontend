@@ -1,0 +1,11 @@
+export const MOVIES_URL = "https://api.nomoreparties.co";
+export const EMAIL_PATTERN = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+export const LETTER_PATTERN = /[^a-zа-яё -]/i;
+export const DURATION_SHORT_MOVIE = 40;
+export const EMAIL_ALREADY_REGISTERED = 'Данный емайл уже зарегистрирован';
+export const EMAIL_ALREADY_EXIST = 'Пользователь с таким email уже существует.';
+export const REGISRATION_ERROR = 'При регистрации пользователя произошла ошибка.';
+export const VALIDATION_FAILED = 'Validation failed';
+export const INCORRECT_DATA = 'Неправильный формат введенных данных.';
+export const INCORRECT_LOGIN_OR_PASSWORD = 'Вы ввели неправильный логин или пароль.';
+export const SERVER_ERROR_MESSAGE = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';

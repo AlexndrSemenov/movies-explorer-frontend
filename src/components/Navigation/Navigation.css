@@ -1,14 +1,8 @@
 .navigation {
-  /* display: absolut;
-  top: 0;
-  right: 0; */
   display: none;
-
   background: white;
   padding-left: 248px;
   text-align: center;
-
-
   align-items: center;
   align-content: center;
   justify-content: center;
