@@ -50,7 +50,7 @@ class Api {
 }
 
 const mainApi = new Api({
-  url: 'https://api.alex.movies.nomoredomains.icu',
+  url: `${window.location.protocol}//api.alex.movies.nomoredomains.icu`,
 });
 
 export default mainApi;

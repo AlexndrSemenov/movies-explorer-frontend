@@ -1,4 +1,5 @@
-export const BASE_AUTH_URL = 'https://api.alex.movies.nomoredomains.icu';
+//export const BASE_AUTH_URL = 'https://api.alex.movies.nomoredomains.icu';
+export const BASE_AUTH_URL = `${window.location.protocol}//api.alex.movies.nomoredomains.icu`;
 
 //5. Вызовем функцию register для создания пользователя
 export const register = (password, email, name) => {
