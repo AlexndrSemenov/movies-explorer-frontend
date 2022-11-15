@@ -183,17 +183,23 @@ function App() {
   //---------------------------- /saved-movies ------------------------------/
   
   useEffect(() => {
-    setShortSavedMovies(savedMovies.filter(movie => movie.duration <= 40));
+    if (location === '/saved-movies') { 
+      setShortSavedMovies(savedMovies.filter(movie => movie.duration <= 40));
+    }
   }, [searchSavedText]);
   
   useEffect(() => {
+    if (location === '/saved-movies') { 
     setSeachSavedMovies(savedMovies.filter(movie => {
       return new RegExp(searchSavedText, "i").test(movie.nameRU);
     }));
+  }
   }, [searchSavedText, isSaveShort]);
 
   useEffect(() => {
+    if (location === '/saved-movies') { 
     setSeachShortSavedMovies(seachSavedMovies.filter(movie => movie.duration <= 40));
+    }
   }, [searchSavedText, isSaveShort]);
 
   // поиск фильмов на странице сохраненных фильмов
