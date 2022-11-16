@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../Movies/SavedMovies";
 import Register from '../Register/Register';
@@ -60,6 +61,8 @@ function App() {
   const [numberMoviesClickMore, setNumberMoviesClickMore] = useState('');
   //показывать кнопку "еще" или нет
   const [showMoreButton, setShowMoreButton] = useState(false);
+  //количество найденных фильмов
+  const [numberMoviesFound, setNumberMoviesFound] = useState('');
   
 
   // сохраненные пользователем фильмы
@@ -82,34 +85,32 @@ function App() {
   const [searchSavedText, setSearchSavedText] = useState("");
   // отображаемые сохраненные фильмы
   const [displayedSavedMovies, setDisplayedSavedMovies] = useState([]);
+  const [fff, setfff] = useState([]);
   
+  //--------------------------все работает-------------без сиач----
   
-  // начальная загрузка после авторизации/перезагрузки страниц
   useEffect(() => {
     tokenCheck();
-
-    if ((!localStorage.moviesOnServer) && (location === '/movies')) {
-      moviesApi.getMovies()
-        .then((movies) => {
-          localStorage.setItem("moviesOnServer", JSON.stringify(movies));
-        })
-        .catch((err) => {
-          changeErrorMessage(SERVER_ERROR_MESSAGE);
-          console.log(err);
-        })
-    }
-
     if (loggedIn) {
-      const token = localStorage.getItem("token");
-      mainApi.getSavedMovies(token)
-        .then((movies) => {
-          localStorage.setItem("savedMovies", JSON.stringify(movies));
-          changeSavedMoviesId(movies);
-        })
-        .catch(err => console.log(err))
+      if (!localStorage.moviesOnServer) {
+      moviesApi.getMovies()
+      .then((movies) => {
+        localStorage.setItem("moviesOnServer", JSON.stringify(movies));
+      })
+      .catch((err) => {
+        changeErrorMessage(SERVER_ERROR_MESSAGE);
+        console.log(err);
+      })
     }
-  }, [location, loggedIn])
-
+     const token = localStorage.getItem("token");
+    mainApi.getSavedMovies(token)
+      .then((movies) => {
+        localStorage.setItem("savedMovies", JSON.stringify(movies));
+        changeSavedMoviesId(movies);
+      })
+      .catch(err => console.log(err));
+    }
+  }, [loggedIn]);
 
   //---------------------------- /movies ------------------------------/  
 
@@ -122,10 +123,8 @@ function App() {
       // благодаря i при анализе строк игнорируется регистр символов
       return new RegExp(textFromSeachForm, "i").test(movie.nameRU);
     });
-  
     localStorage.setItem("initialMovies", JSON.stringify(b));
     localStorage.setItem("screenMovies", JSON.stringify(b));
-    
     if (isShort) {
       changeShort();
     }
@@ -149,12 +148,9 @@ function App() {
     const a = JSON.parse(localStorage.getItem("initialMovies"));
     localStorage.setItem("screenMovies", JSON.stringify(a));
     localStorage.removeItem("short");
+    changeNumberMovieOnScreenOrRow();
     setIsShort(false);
   }
-  
-  // рефреш страницы при изменении isReloadPage и isShort
-  //количество найденных фильмов
-  const [numberMoviesFound, setNumberMoviesFound] = useState('');
 
   useEffect(() => {
     if (location === '/movies') {
@@ -163,23 +159,22 @@ function App() {
       }
       setIsShort(localStorage.getItem("short" || "") === "true");
       const screenMovies = JSON.parse(localStorage.getItem("screenMovies"));
-      if (isShort) {
-        setDisplayedMovies(screenMovies);
-      } else {
-        //измеряем numberMoviesOnScreen, numberMoviesClickMore
-        changeNumberMovieOnScreenOrRow();
-        setNumberMoviesFound(screenMovies.length);
-        //numberMoviesFound > numberMoviesOnScreen ? показываем кнопку "Еще"
-        changeShowMoreButton(numberMoviesFound, numberMoviesOnScreen);
-        setDisplayedMovies(screenMovies.slice(0, numberMoviesOnScreen));
-      }
-    } 
-  }, [ searchText, isShort, numberMoviesFound ]);
-
-  function d() {
-    const shortSavedMovies = savedMovies.filter(movie => movie.duration <= 40);
-    return shortSavedMovies;
+    if (localStorage.initialMovies) { 
+        if (isShort) {
+          setDisplayedMovies(screenMovies);
+        } else {
+          //измеряем numberMoviesOnScreen, numberMoviesClickMore
+          changeNumberMovieOnScreenOrRow();
+          setNumberMoviesFound(screenMovies.length);
+          //numberMoviesFound > numberMoviesOnScreen ? показываем кнопку "Еще"
+          changeShowMoreButton(numberMoviesFound, numberMoviesOnScreen);
+          setDisplayedMovies(screenMovies.slice(0, numberMoviesOnScreen));
+        };
   }
+    } 
+  }, [ searchText, numberMoviesFound, isShort ]);
+
+  
   //---------------------------- /saved-movies ------------------------------/
   
   useEffect(() => {
@@ -251,11 +246,9 @@ function App() {
     }
   }, [ searchSavedText, isSaveShort, isAfterFirstChangeSavedShort, seachSavedMovies, idSavedMovies ]);
 
-  
   //--------изменение количества фильмов на странице---------//
   
   function changeNumberMovieOnScreenOrRow() {
-    console.log(numberMoviesOnScreen, screenWidth, numberMoviesClickMore)
     if (screenWidth < 481) {
       setNumberMoviesOnScreen(5);
       setNumberMoviesClickMore(1);
@@ -287,7 +280,6 @@ function App() {
     setShowMoreButton(false);
   }
 
-
   //-------------------------------общие функции-----------------------//
   
   // лайк фильма
@@ -300,7 +292,6 @@ function App() {
         changeSavedMoviesId(b);
       }) 
       .catch(err => console.log(err));
-    //reloadPage([]);
   }
     
   // дизлайк фильма
@@ -316,7 +307,6 @@ function App() {
     });
     localStorage.setItem("savedMovies", JSON.stringify(b));
     changeSavedMoviesId(b);
-    //reloadPage([]);
   }
 
   // Вывод ошибок пользователю при поиске фильмов
@@ -345,6 +335,7 @@ function App() {
           changeProfileErrorText(newUser.message);
         } else {
           setCurrentUser(newUser);
+          changeProfileErrorText('Ваши данные успешно изменены');
         }
       })
       .catch(err => console.log(err))
@@ -434,14 +425,12 @@ function App() {
     setIdSavedMovies([]);
     setDisplayedMovies([]);
     setDisplayedSavedMovies([]);
-    
     setSearchText("");
     setSearchSavedText("");
     setMoviesErrorText("");
     setCurrentUser({});
     setProfileErrorText("");
     setIsShort();
-    
     setLoggedIn();
     localStorage.removeItem("moviesOnServer");
     localStorage.removeItem("token");
@@ -452,7 +441,6 @@ function App() {
     localStorage.removeItem("searchSavedText");
     localStorage.removeItem("short");
     localStorage.removeItem("saveShot");
-     
     history.push("/");
   }
 
@@ -524,6 +512,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Main />
+        </Route>
+        <Route path="*">
+          <PageNotFound />
         </Route>
       </Switch>
       { location === "/" ||

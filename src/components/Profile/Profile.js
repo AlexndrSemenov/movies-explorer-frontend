@@ -91,7 +91,7 @@ function Profile(props) {
 
         <div className='profile__text-error'>{props.profileErrorText}</div>
 
-        <button className="profile__link" onClick={props.handleUpdateUser} disabled={ !isValid }>Редактировать</button>
+        <button type="submit" className="profile__link" disabled={ !isValid }>Редактировать</button>
         <Link to="/" type="submit" className="profile__link-quit" onClick={props.signOut}>Выйти из аккаунта</Link>
       </form>
 
