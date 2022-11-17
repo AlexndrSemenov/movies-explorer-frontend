@@ -1,6 +1,7 @@
 import { MOVIES_URL } from "./constants";
 
 class Api {
+
   constructor({ url }) {
     this._url = url;
   }
@@ -9,8 +10,10 @@ class Api {
     if (res.ok) {
       return res.json();
       }
-      return Promise.reject('Произошла ошибка');
+      return Promise.reject(res);
   }
+
+  // ---------------------работа с карточками фильмов-----------------//
 
   getSavedMovies(token) {
     return fetch(`${this._url}/movies`, {
@@ -47,6 +50,44 @@ class Api {
     })
     .then(this._checkResponse);
   }
+
+  // ---------------------работа с пользователем-----------------//
+
+  updateUser(data, token) {
+    return fetch(`${this._url}/users/me`, {
+      method: "PATCH",
+      headers: { authorization:`Bearer ${token}`, 'Content-Type':'application/json' },
+      body: JSON.stringify({ name: data.name, email: data.email }),
+    })
+    .then(this._checkResponse);
+  }
+
+  register(password, email, name) {
+    return fetch(`${this._url}/signup`, {
+      method: "POST",
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({password, email, name}),
+    })
+    .then(this._checkResponse);
+  }
+
+  authorize(password, email) {
+    return fetch(`${this._url}/signin`, {
+      method: "POST",
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({password, email}),
+    })
+    .then(this._checkResponse);
+  }
+
+  getContent(token) {
+    return fetch(`${this._url}/users/me`, {
+      method: "GET",
+      headers: { authorization:`Bearer ${token}`, 'Content-Type':'application/json' },
+    })
+    .then(this._checkResponse);
+  }
+  
 }
 
 const mainApi = new Api({

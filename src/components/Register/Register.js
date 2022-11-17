@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import headerLogo from '../../images/header-logo.svg';
 import "./Register.css";
 import { EMAIL_PATTERN, LETTER_PATTERN } from "../../utils/constants";
@@ -67,7 +67,8 @@ function Register(props) {
   }
 
   return(
-    <div className="register__form">
+    !props.loggedIn ?
+    (<div className="register__form">
       <Link to="/" className='header__logo'><img src={headerLogo} alt="Логотип заголовка"></img></Link>
       <p className="login__welcome">Добро пожаловать!</p>
       <form onSubmit={handleSubmit}>
@@ -77,16 +78,18 @@ function Register(props) {
         <p className="input-error">{nameError}</p>
 
         <div className='login__text'>Email</div>
-        <input className={`login__input border__bottom-blue ${emailError ? "message__error" : ""}`} placeholder='email' value={email} onChange={handleChangeEmail}/>
+        <input className={`login__input border__bottom-blue ${emailError ? "message__error" : ""}`} placeholder='email' value={email} onChange={handleChangeEmail} disabled={props.isInvisible} />
         <p className="input-error">{emailError}</p>
 
         <div className='login__text-two'>Пароль</div>
-        <input className={`login__input border__bottom-grey ${passwordError ? "message__error" : ""}`} placeholder='Пароль' value={password} onChange={handleChangePassword}/>
+        <input className={`login__input border__bottom-grey ${passwordError ? "message__error" : ""}`} placeholder='Пароль' value={password} onChange={handleChangePassword} disabled={props.isInvisible} />
         <p className="input-error">{passwordError}</p>
 
         <div className='profile__text-error'>{props.profileErrorText}</div>
 
-        <button type="submit" className={ !isValid ? (`${'register__link'} ${'register__link-passiv'}`) : ('register__link') } disabled={ !isValid }>Зарегистрироваться</button>
+        <button type="submit" disabled={ !isValid || props.isInvisible } className={ (!isValid || props.isInvisible) ?
+        (`${'register__link'} ${'register__link-passiv'}`) :
+        ('register__link') } >Зарегистрироваться</button>
       </form>
       
       <div className="register__signin">
@@ -94,7 +97,9 @@ function Register(props) {
         <Link to="/signin" className="register__login-link-smoll">Войти</Link>
       </div>
 
-    </div>
+    </div>)
+    :
+    <Redirect to="/" />
   )
 }
 

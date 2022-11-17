@@ -77,21 +77,21 @@ function Profile(props) {
 
         <div className='profile__text'>
           <div>Имя</div>
-          <input className='profile__text-name' value={ name || '' } onChange={handleChangeName} placeholder='Имя пользователя'/>
+          <input className='profile__text-name' value={ name || '' } onChange={handleChangeName} placeholder='Имя пользователя' disabled={props.isInvisible} />
           
         </div>
         <p className="profile__input-error">{nameError}</p>
 
         <div className='profile__text'>
           <div>Email</div>
-          <input className='profile__text-name' value={ email || '' } onChange={handleChangeEmail} placeholder='email'/>
+          <input className='profile__text-name' value={ email || '' } onChange={handleChangeEmail} placeholder='email' disabled={props.isInvisible} />
           
         </div>
         <p className="profile__input-error-last">{emailError}</p>
 
         <div className='profile__text-error'>{props.profileErrorText}</div>
 
-        <button type="submit" className="profile__link" disabled={ !isValid }>Редактировать</button>
+        <button type="submit" className="profile__link" disabled={ !isValid || props.isInvisible }>Редактировать</button>
         <Link to="/" type="submit" className="profile__link-quit" onClick={props.signOut}>Выйти из аккаунта</Link>
       </form>
 

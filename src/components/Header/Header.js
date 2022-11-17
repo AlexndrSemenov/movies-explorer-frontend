@@ -30,12 +30,16 @@ function Header(props) {
         <>
           <div className='header__wrapperMovies'>
             <a href="/movies" className={ 
-              (location==='/') ? (`${'header__movies'} ${'header__font-light'}`) :
-              (location==='/movies') ? (`${'header__movies'} ${'header__font-bold'}`) :
+              (location==='/') ?
+              (`${'header__movies'} ${'header__font-light'}`) :
+              (location==='/movies') ?
+              (`${'header__movies'} ${'header__font-bold'}`) :
               ('header__movies') } >Фильмы</a>
             <a href="/saved-movies" className={ 
-              (location==='/') ? `${'header__saveMovies'} ${'header__font-light'}` :
-              (location==='/saved-movies') ? (`${'header__saveMovies'} ${'header__font-bold'}`) :
+              (location==='/') ?
+              `${'header__saveMovies'} ${'header__font-light'}` :
+              (location==='/saved-movies') ?
+              (`${'header__saveMovies'} ${'header__font-bold'}`) :
               ('header__saveMovies') } >Сохраненные фильмы</a>
           </div>
           

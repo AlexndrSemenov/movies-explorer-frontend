@@ -1,5 +1,5 @@
 .movies__item {
-  width: 270px;
+  /* width: 270px; */
   height: 218px;
   margin: 0;
   background: #FDFDFD;
@@ -52,7 +52,7 @@
 }
 
 .movies__name {
-  width: 206px;
+  /* width: 206px; */
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;

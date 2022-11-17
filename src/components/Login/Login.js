@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import headerLogo from '../../images/header-logo.svg';
 import "./Login.css";
 import { EMAIL_PATTERN } from "../../utils/constants";
@@ -54,23 +54,28 @@ function Login(props) {
   }
 
   return(
-    <div className="register__form">
+    !props.loggedIn ?
+    (<div className="register__form">
       
       <Link to="/" className='header__logo'><img src={headerLogo} alt="Логотип заголовка"></img></Link>
       <p className="login__welcome">Рады видеть!</p>
       <form onSubmit={handleSubmit}>
         
         <div className='login__text'>Email</div>
-        <input className={`login__input border__bottom-grey ${emailError ? "message__error" : ""}`} placeholder='Email' value={email} onChange={handleChangeEmail}/>
+        <input className={`login__input border__bottom-grey ${emailError ? "message__error" : ""}`} placeholder='Email' value={email} onChange={handleChangeEmail} disabled={props.isInvisible} />
         <p className="input-error">{emailError}</p>
 
         <div className='login__text'>Пароль</div>  
-        <input className={`login__input-last border__bottom-grey ${passwordError ? "message__error" : ""}`} placeholder='Пароль' value={password} onChange={handleChangePassword} />
+        <input className={`login__input-last border__bottom-grey ${passwordError ? "message__error" : ""}`} placeholder='Пароль' value={password} onChange={handleChangePassword} disabled={props.isInvisible} />
         <p className="input-error-two">{passwordError}</p>
 
         <div className='profile__text-error'>{props.profileErrorText}</div>
         
-        <button type="submit" className={ !isValid ? (`${'register__link'} ${'register__link-passiv'}`) : ('register__link') } disabled={ !isValid }>Войти</button>
+        <button type="submit" disabled={ !isValid || props.isInvisible } className={
+          (!isValid || props.isInvisible) ?
+          (`${'register__link'} ${'register__link-passiv'}`) :
+          ('register__link') 
+          } >Войти</button>
           
       </form>
 
@@ -78,7 +83,9 @@ function Login(props) {
         <p className="register__login-question">Еще не зарегистрированы?</p>
         <Link to="/signup" className="register__login-link-smoll">Регистрация</Link>
       </div>
-    </div>
+    </div>)
+    :
+    <Redirect to="/" />
   )
 }
 
