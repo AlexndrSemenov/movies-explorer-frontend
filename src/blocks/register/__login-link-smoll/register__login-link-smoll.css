@@ -1,0 +1,10 @@
+.register__login-link-smoll {
+  margin: 0 0 0 7px;
+  text-decoration: none;
+  color: white;
+}
+
+.register__login-link-smoll:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}

@@ -1,46 +1,81 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link, Redirect } from 'react-router-dom';
 import headerLogo from '../../images/header-logo.svg';
 import "./Login.css";
+import { EMAIL_PATTERN } from "../../utils/constants";
 
-//1. Обратимся к компоненту Login
-// function Login(props) {
-function Login() {
+function Login(props) {
 
-  // const [password, setPassword] = React.useState('');
-  // const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
-  // function handleChangePassword(e) {
-  //   setPassword(e.target.value);
-  // }
+  function handleChangePassword(e) {
+    const value = e.target.value;
+    if ((value.length < 2) || (value.length > 30)) {
+      setPasswordError("Измените пароль!");
+      setIsValid(false);
+    } else {
+      setPasswordError("");
+    }
+    setPassword(value);
+  }
 
-  // function handleChangeEmail(e) {
-  //   setEmail(e.target.value);
-  // }
+  function handleChangeEmail(e) {
+    const value = e.target.value;
+    if (!EMAIL_PATTERN.test(value) && value.length > 0) {
+      setEmailError("Неверный формат e-mail!");
+      setIsValid(false);
+    } else {
+      setEmailError("");
+    }
+    setEmail(value);
+  }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   props.handleLogin({password, email});
-  // }
+  function checkValid() {
+    if (!passwordError && !emailError && password && email) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }
+
+  useEffect(() => {
+    checkValid();
+  }, [password, email]);
+
+  function handleSubmit(e) {
+    // Запрещаем браузеру переходить по адресу формы
+    e.preventDefault();
+    props.handleLogin({password, email});
+  }
 
   return(
-    <div className="register__form">
+    !props.loggedIn ?
+    (<div className="register__form">
       
       <Link to="/" className='header__logo'><img src={headerLogo} alt="Логотип заголовка"></img></Link>
       <p className="login__welcome">Рады видеть!</p>
-      {/* <form onSubmit={handleSubmit} className="register__form"> */}
-      <form>
+      <form onSubmit={handleSubmit}>
         
-        <div className='login__text'>E-mail</div>
-        {/* <input className="login__input" id="email" required name="email" type="text" value={email} onChange={handleChangeEmail} placeholder='Email' /> */}
-        <input className="login__input" id="password" type="password" placeholder='pochta@yandex.ru'/>
-          
-        <div className='login__text'>Пароль</div>  
-        {/* <input className="login__input" id="password" required name="password" type="password" value={password} onChange={handleChangePassword} placeholder='Пароль' /> */}
-        <input className="login__input-last" id="password" type="password" placeholder='' />
+        <div className='login__text'>Email</div>
+        <input className={`login__input border__bottom-grey ${emailError ? "message__error" : ""}`} placeholder='Email' value={email} onChange={handleChangeEmail} disabled={props.isInvisible} />
+        <p className="input-error">{emailError}</p>
 
-        <button type="submit" className="register__link">Войти</button>
+        <div className='login__text'>Пароль</div>  
+        <input className={`login__input-last border__bottom-grey ${passwordError ? "message__error" : ""}`} placeholder='Пароль' value={password} onChange={handleChangePassword} disabled={props.isInvisible} />
+        <p className="input-error-two">{passwordError}</p>
+
+        <div className='profile__text-error'>{props.profileErrorText}</div>
+        
+        <button type="submit" disabled={ !isValid || props.isInvisible } className={
+          (!isValid || props.isInvisible) ?
+          (`${'register__link'} ${'register__link-passiv'}`) :
+          ('register__link') 
+          } >Войти</button>
           
       </form>
 
@@ -48,7 +83,9 @@ function Login() {
         <p className="register__login-question">Еще не зарегистрированы?</p>
         <Link to="/signup" className="register__login-link-smoll">Регистрация</Link>
       </div>
-    </div>
+    </div>)
+    :
+    <Redirect to="/" />
   )
 }
 

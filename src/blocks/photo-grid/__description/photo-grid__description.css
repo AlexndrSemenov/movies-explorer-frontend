@@ -1,0 +1,5 @@
+.photo-grid__description {
+  display: flex;
+  justify-content: space-between;
+  margin: 22px auto auto 21px;
+}

@@ -1,0 +1,25 @@
+.photo-grid__text {
+  color: #000;
+  font-size: 24px;
+  line-height: 29.05px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: auto auto auto 0;
+}
+
+@media screen and (max-width: 600px) {
+  .photo-grid__text {
+    max-width: 180px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .photo-grid__text {
+    max-width: 200px;
+  }
+}

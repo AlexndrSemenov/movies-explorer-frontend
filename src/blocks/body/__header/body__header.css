@@ -1,0 +1,26 @@
+/* .body__header {
+  max-width: 880px;
+  margin: 45px auto 0 auto;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  display: flex;
+  justify-content: space-between;
+} */
+
+@media screen and (max-width: 1024px) {
+  .body__header {
+    margin: 45px 100px 0 100px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .body__header {
+    margin: 35px auto 0 auto;
+    max-width: calc(85%);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .body__header {
+    margin: 28px 0 28px 0;
+  }
+}

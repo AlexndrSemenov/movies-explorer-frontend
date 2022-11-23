@@ -1,0 +1,7 @@
+.photo-grid__delete_image-down {
+  margin: auto;
+  background-repeat: no-repeat;
+  height: 13px;
+  width: 16px;
+  background-image: url(../../../../images/basket2.svg);
+}

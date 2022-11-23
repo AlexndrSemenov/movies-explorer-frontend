@@ -1,0 +1,15 @@
+.photo-grid__heart {
+  cursor: pointer;
+  margin: 0 20px 3px auto;
+  width: 22px;
+  height: 19px;
+  background: none;
+  background-image: url(../../../images/heart.svg);
+  background-size: cover;
+  border: none;
+}
+
+.photo-grid__heart:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
